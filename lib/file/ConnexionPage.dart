@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:todapi/file/TodoPage.dart';
-import 'package:todapi/file/WelcomePage.dart';
 
 class Connexionpage extends StatefulWidget {
   Connexionpage({super.key});
@@ -59,13 +58,13 @@ class _ConnexionpageState extends State<Connexionpage> {
       } catch (e) {
         print(e);
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Erreur de connexion')),
+          const SnackBar(content: Text('Erreur de connexion')),
         );
       }
     } else {
       // Si les informations ne correspondent pas
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Email ou mot de passe incorrect')),
+        const SnackBar(content: Text('Email ou mot de passe incorrect')),
       );
     }
   }
@@ -93,20 +92,18 @@ class _ConnexionpageState extends State<Connexionpage> {
               const Text("Email"),
               TextField(
                 controller: emailController,
-                decoration: const InputDecoration(labelText: "Email"),
               ),
-              SizedBox(height: 30),
-              Text("Mot de passe"),
+              const SizedBox(height: 30),
+              const Text("Mot de passe"),
               TextField(
                 controller: passwordController,
                 obscureText: true, // cache le mot de passe
-                decoration: InputDecoration(labelText: "Mot de passe"),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Center(
                 child: ElevatedButton(
                   onPressed: login, // Appelle la fonction de connexion
-                  child: Text("Connexion"),
+                  child: const Text("Connexion"),
                 ),
               ),
             ],

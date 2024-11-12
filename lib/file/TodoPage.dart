@@ -77,7 +77,7 @@ class _TodopageState extends State<Todopage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Todolist'),
+        title: const Text('Todolist'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -85,7 +85,7 @@ class _TodopageState extends State<Todopage> {
           children: [
             TextField(
               controller: _taskController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Nom de la tâche',
                 border: OutlineInputBorder(),
               ),

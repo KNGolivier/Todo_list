@@ -39,7 +39,7 @@ class _TodopageState extends State<Todopage> {
       _taskController.clear();
       fetchTasks();
     } else {
-      throw Exception('Failed to add task');
+      throw Exception('Ajout de tâche échoué');
     }
   }
 
@@ -53,7 +53,7 @@ class _TodopageState extends State<Todopage> {
     if (response.statusCode == 200) {
       fetchTasks();
     } else {
-      throw Exception('Failed to update task');
+      throw Exception('Modification de tâche échoué');
     }
   }
 
@@ -63,7 +63,7 @@ class _TodopageState extends State<Todopage> {
     if (response.statusCode == 200) {
       fetchTasks();
     } else {
-      throw Exception('Failed to delete task');
+      throw Exception('Suppression de la tâche échoué');
     }
   }
 
@@ -95,7 +95,7 @@ class _TodopageState extends State<Todopage> {
               onPressed: () {
                 addTask(_taskController.text);
               },
-              child: Text('Soumettre'),
+              child: Text('Ajouter'),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
               ),

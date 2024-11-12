@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
+import 'package:todapi/file/TodoPage.dart';
 import 'package:todapi/file/WelcomePage.dart';
 
 class Connexionpage extends StatefulWidget {
@@ -47,7 +48,7 @@ class _ConnexionpageState extends State<Connexionpage> {
           // Naviguez vers la page d'accueil
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Welcomepage()),
+            MaterialPageRoute(builder: (context) => const Todopage()),
           );
         } else {
           // Gérer les erreurs de connexion
@@ -71,15 +72,15 @@ class _ConnexionpageState extends State<Connexionpage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
         backgroundColor: Colors.white,
         body: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
+              const Center(
                 child: Text(
                   "Todolist",
                   style: TextStyle(
@@ -88,9 +89,26 @@ class _ConnexionpageState extends State<Connexionpage> {
                       color: Colors.green),
                 ),
               ),
+              const SizedBox(height: 30),
+              const Text("Email"),
+              TextField(
+                controller: emailController,
+                decoration: const InputDecoration(labelText: "Email"),
+              ),
               SizedBox(height: 30),
-              Text("Email"),
-              TextField()
+              Text("Mot de passe"),
+              TextField(
+                controller: passwordController,
+                obscureText: true, // cache le mot de passe
+                decoration: InputDecoration(labelText: "Mot de passe"),
+              ),
+              SizedBox(height: 30),
+              Center(
+                child: ElevatedButton(
+                  onPressed: login, // Appelle la fonction de connexion
+                  child: Text("Connexion"),
+                ),
+              ),
             ],
           ),
         ));
